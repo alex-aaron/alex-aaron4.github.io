@@ -16,8 +16,8 @@
  *      1. length(): returns the number of contacts within the list.
  *      2. addContact(contact): takes a contact object to be added to the 
  *         contact-list.
- *      3. findContact(fullName): takes a full-name String, like 'Max Gaudin', and 
- *         returns the contact object if found in the contacts-list, or, 
+ *      3. findContact(fullName): takes a full-name String, contacts-lis like 'Max Gaudin', and 
+ *         returns the contact object if found in thet, or, 
  *         undefined if the fullName does not match any contacts in the list.
  *      4. removeContact(contact): takes a contact object to be removed from 
  *         the contact-list.
@@ -34,22 +34,36 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
-function makeContact(id, nameFirst, nameLast) {
+function makeContact(id, nameFirst, nameLast) { // FACTORY FUNCTION
+    return {
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast
+    }
+};
 
-} 
 
-
-function makeContactList() {
+function makeContactList() { // FACTORY FUNCTION
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
-        }
+        },
+        addContact: function(contact){
+            contacts.push(contact);
+        },
+        findContact: function(fullName){
+            for (var i = 0; i < contacts.length; i++){
+                if (fullName === contacts[i].nameFirst + " " + contacts[i].nameLast){
+                    return contacts[i];
+                }
+            }
+        },
     }
 }
 

@@ -14,9 +14,10 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
-    
-    
+    return function(){
+
+    }
+
     // YOUR CODE ABOVE HERE //
 }
 
@@ -68,8 +69,11 @@ function createEndsWithFilter(endsWith) {
  * 
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
+ * 
+ * example: modifyStrings(['a', 'b'], function(string) { return string.toUpperCase() });
+ * // => ['A', 'B'];
  */
-function modifyStrings(strings, modify) {
+function modifyStrings(strings, modify) { // takes a function as an argument
     // YOUR CODE BELOW HERE //
     
     
