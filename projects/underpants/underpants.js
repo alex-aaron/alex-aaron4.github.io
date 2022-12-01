@@ -3,7 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-var _ = {}; // 
+var _ = {};
+
 
 
 /**
@@ -47,7 +48,7 @@ _.identity = function(value){
 
 _.typeOf = function(){
 
-}
+};
 
 /** _.first
 * Arguments:
@@ -139,17 +140,19 @@ _.typeOf = function(){
 _.each = function(collection, func){
     // determine if collection is an array
     if (Array.isArray(collection)){
-        // iterate through collection
+        // iterate through collection using for loop
         for (let i = 0; i < collection.length; i++){
+            // call function on each item
             func(collection[i], i, collection);
         }
     } else { // else it's an object
-        // iterate through collection
         for (let key in collection){
+            // call function in each value, key, collection
             func(collection[key], key, collection);
         }
     }
 };
+
 
 /** _.unique
 * Arguments:
@@ -177,6 +180,10 @@ _.each = function(collection, func){
 * Extra Credit:
 *   use _.each in your implementation
 */
+
+_.filter = function(array, func){
+
+}
 
 
 /** _.reject
@@ -264,6 +271,7 @@ _.each = function(collection, func){
 */
 
 
+
 /** _.some
 * Arguments:
 *   1) A collection
@@ -304,6 +312,24 @@ _.each = function(collection, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+
+_.reduce = function(array, func, seed){
+    // create result variable
+    let result;
+    // determine if seed did not receive a value
+    if (seed === undefined){ 
+        result = array[0];
+        for (let i = 1; i < array.length; i++){
+            result = func(result, array[i], i, array);
+        }
+    } else { // else it did
+        result = seed;
+        for (let i = 0; i < array.length; i++){
+            result = func(result, array[i], i, array);
+        }
+    }
+    return result;
+};
 
 
 /** _.extend
